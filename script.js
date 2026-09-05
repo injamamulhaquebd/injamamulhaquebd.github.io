@@ -433,6 +433,7 @@ function initCertificateModal() {
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
+    const formEndpoint = 'https://formsubmit.co/ajax/injamamulhaque008@gmail.com';
 
     contactForm.querySelectorAll('input, textarea').forEach(field => {
         field.addEventListener('focus', function () {
@@ -444,7 +445,8 @@ function initContactForm() {
         });
     });
 
-    contactForm.addEventListener('submit', function (event) {
+    contactForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
 
         const name = document.getElementById('name').value.trim();
         const email = document.getElementById('email').value.trim();
@@ -452,19 +454,74 @@ function initContactForm() {
         const message = document.getElementById('message').value.trim();
 
         if (!name || !email || !subject || !message) {
-            event.preventDefault();
             showAlert('Validation Error', 'Please fill in all fields before submitting.', false);
             return;
         }
 
         if (!isValidEmail(email)) {
-            event.preventDefault();
             showAlert('Invalid Email', 'Please enter a valid email address.', false);
             return;
         }
 
         const submitButton = contactForm.querySelector('.submit-btn');
+        const originalButtonText = submitButton.textContent;
+
         submitButton.disabled = true;
         submitButton.textContent = 'Sending...';
+
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(new FormData(contactForm).entries()))
+            });
+
+            if (!response.ok) throw new Error('Unable to send message');
+
+            showAlert('Email Sent Successfully!', 'Thank you for your message. I will respond soon.', true);
+                contactForm.reset();
+                contactForm.querySelectorAll('.form-group').forEach(group => group.classList.remove('is-focused'));
+        } catch (error) {
+            showAlert('Message Not Sent', 'Please try again later or email me directly at injamamulhaque008@gmail.com.', false);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.textContent = originalButtonText;
+        }
     });
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showAlert(title, message, isSuccess) {
+    const alertModal = document.getElementById('alertModal');
+    const alertContent = alertModal ? alertModal.querySelector('.alert-content') : null;
+    const alertTitle = document.getElementById('alertTitle');
+    const alertMessage = document.getElementById('alertMessage');
+    const alertClose = document.getElementById('alertClose');
+
+    if (!alertModal || !alertContent || !alertTitle || !alertMessage) return;
+
+    alertTitle.textContent = title;
+    alertMessage.textContent = message;
+    alertContent.classList.toggle('is-success', isSuccess);
+    alertContent.classList.toggle('is-error', !isSuccess);
+    alertModal.classList.add('active');
+    document.body.classList.add('modal-open');
+
+    if (alertClose) alertClose.focus();
+
+    const closeAlert = function () {
+        alertModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    };
+
+    if (alertClose) alertClose.onclick = closeAlert;
+    alertModal.onclick = function (event) {
+        if (event.target === alertModal) closeAlert();
+    };
 }

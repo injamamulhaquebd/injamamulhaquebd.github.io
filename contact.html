@@ -61,14 +61,14 @@
             <div class="contact-container">
                 <!-- Contact Form -->
                 <div class="contact-form-wrapper">
-                    <h2>Send Me a Message</h2>
+                   <h2>Send Me a Message</h2>
                     <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/injamamulhaque008@gmail.com" method="POST">
                         <input type="hidden" name="_subject" value="New message from your portfolio">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_url" value="https://injamamulhaquebd.github.io/contact.html">
                         <div class="form-group">
                             <label for="name">Full Name</label>
-                            <input type="text" id="name" name="name" placeholder="John Cina" required>
+                            <input type="text" id="name" name="name" placeholder="John Doe" required>
                         </div>
 
                         <div class="form-group">
@@ -130,6 +130,14 @@
             </div>
         </div>
     </section>
+
+    <div class="alert-modal" id="alertModal" role="dialog" aria-modal="true" aria-labelledby="alertTitle" aria-describedby="alertMessage">
+        <div class="alert-content" role="document">
+            <h3 id="alertTitle"></h3>
+            <p id="alertMessage"></p>
+            <button type="button" class="alert-btn" id="alertClose">OK</button>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
