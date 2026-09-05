@@ -470,7 +470,7 @@ function initContactForm() {
         submitButton.textContent = 'Sending...';
 
         try {
-            const response = await fetch(contactForm.action, {
+            const response = await fetch(formEndpoint, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -482,8 +482,8 @@ function initContactForm() {
             if (!response.ok) throw new Error('Unable to send message');
 
             showAlert('Email Sent Successfully!', 'Thank you for your message. I will respond soon.', true);
-                contactForm.reset();
-                contactForm.querySelectorAll('.form-group').forEach(group => group.classList.remove('is-focused'));
+            contactForm.reset();
+            contactForm.querySelectorAll('.form-group').forEach(group => group.classList.remove('is-focused'));
         } catch (error) {
             showAlert('Message Not Sent', 'Please try again later or email me directly at injamamulhaque008@gmail.com.', false);
         } finally {
