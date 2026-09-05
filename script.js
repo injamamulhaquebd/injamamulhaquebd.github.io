@@ -530,6 +530,8 @@ function showAlert(title, message, isSuccess) {
         if (isSuccess) window.location.href = 'contact.html';
     };
     modal.classList.add('active');
+    clearTimeout(modal.alertTimeout);
+    modal.alertTimeout = setTimeout(closeAlert, 3000);
 }
 
 function closeAlert() {
