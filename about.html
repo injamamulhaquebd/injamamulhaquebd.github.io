@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Resources/icon.png">
+    <title>About & Skills - Md Injamam UL Haque</title>
+    <script>
+        (function () {
+            var theme = localStorage.getItem('portfolio-theme');
+            if (theme === 'light' || theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="launch-loader" aria-label="Loading portfolio">
+            <div class="launch-orbit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <img src="Resources/icon.png" alt="Md Injamam UL Haque logo">
+            </div>
+            <p class="launch-kicker">Initializing Portfolio</p>
+            <div class="launch-progress"><span></span></div>
+            <p class="launch-status">Preparing interface...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand"><img src="Resources/Logo.png" alt="Logo" class="nav-logo"></div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+               
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌙</button>
+        </div>
+    </nav>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <h1 class="section-title">About Me</h1>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>My Journey</h2>
+                        <p>
+                            An experienced IT Technician with more than 9 years of hands-on experience in IT support, desktop troubleshooting, hardware and software maintenance, help desk operations, and computer networking. I have developed a strong practical understanding of diagnosing technical problems, identifying the root causes of system and connectivity issues, and providing reliable solutions that help users work efficiently. Over the years, I have gained valuable experience supporting desktops, laptops, printers, peripheral devices, Windows environments, and basic network infrastructure in a professional workplace.
+                        </p>
+                        <p>
+                           I take genuine satisfaction in solving technical problems and making technology work smoothly for people. Whether I am troubleshooting a hardware issue, configuring a computer, resolving software problems, investigating network connectivity, or assisting an end user, my approach is always based on patience, discipline, attention to detail, and a strong commitment to finding the right solution. I believe effective IT support is not simply about fixing a problem � it is about understanding the issue, preventing it from happening again, and providing users with a dependable technology experience.
+                        </p>
+                        <p>
+                            I hold CompTIA A+ and CompTIA Network+ certifications, along with six months of professional networking training, which have strengthened my knowledge of computer hardware, operating systems, networking fundamentals, TCP/IP, LAN/WAN environments, network troubleshooting, and IT infrastructure. My practical experience, combined with my technical training, allows me to approach IT challenges with both hands-on problem-solving ability and a structured mindset.
+                        </p>
+						<p>
+						I am currently seeking an opportunity in an international organization where I can apply my experience as an IT Technician, Desktop Support, or IT Help Desk professional, continue developing my technical expertise, learn from experienced IT professionals, and contribute to a reliable, secure, and efficient IT environment. I am motivated by continuous learning, professional growth, and the opportunity to provide high-quality technical support that users and organizations can truly rely on.
+						</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            
+            <div class="skills-grid">
+               
+                <!-- Backend Languages -->
+                <div class="skill-category">
+                    <h3 class="category-title">Backend Languages</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">PHP</span>
+                        <span class="skill-badge">Java</span>
+                        <span class="skill-badge">C++</span>
+                        <span class="skill-badge">C#</span>
+                    </div>
+                </div>
+                <!-- Frontend Core -->
+                <div class="skill-category">
+                    <h3 class="category-title">Frontend Core</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">HTML5</span>
+                        <span class="skill-badge">CSS3</span>
+                        <span class="skill-badge">Tailwind CSS</span>
+                        <span class="skill-badge">JavaScript</span>
+                        <span class="skill-badge">TypeScript</span>
+                    </div>
+                </div>
+                <!-- Frameworks/Libraries -->
+                <div class="skill-category">
+                    <h3 class="category-title">Frameworks/Libraries</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">React.js</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Next.js</span>
+                        <span class="skill-badge">Nest.js</span>
+                    </div>
+                </div>
+
+
+                <!-- UI/UX & Design -->
+                <div class="skill-category">
+                    <h3 class="category-title">UI/UX & Design</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Figma</span>
+                        <span class="skill-badge">Stitch</span>
+                        <span class="skill-badge">Canva</span>
+                        <span class="skill-badge">UI/UX Design</span>
+                        <span class="skill-badge">Web Design</span>
+                        <span class="skill-badge">Responsive Design</span>
+                    </div>
+                </div>
+
+
+
+
+                <!-- Databases -->
+                <div class="skill-category">
+                    <h3 class="category-title">Databases</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">MySQL</span>
+                        <span class="skill-badge">Oracle Database</span>
+                        <span class="skill-badge">Microsoft SQL Server</span>
+                        <span class="skill-badge">PostgreSQL</span>
+                    </div>
+                </div>
+                <!-- QA & Testing -->
+                <div class="skill-category">
+                    <h3 class="category-title">QA & Testing</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Manual Testing</span>
+                        <span class="skill-badge">Test Case Design</span>
+                        <span class="skill-badge">Test Scenario Preparation</span>
+                        <span class="skill-badge">Jira</span>
+                        <span class="skill-badge">Trello</span>
+                        <span class="skill-badge">Defect Reporting</span>
+                        <span class="skill-badge">UAT Documentation</span>
+                        <span class="skill-badge">Agile</span>
+                        <span class="skill-badge">Scrum</span>
+                        <span class="skill-badge">Regression Testing</span>
+                        <span class="skill-badge">Test Execution & Reporting</span>
+                    </div>
+                </div>
+
+                <!-- Testing Tools -->
+                <div class="skill-category">
+                    <h3 class="category-title">Testing Tools</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Postman</span>
+                        <span class="skill-badge">Selenium WebDriver</span>
+                        <span class="skill-badge">Mocha</span>
+                        <span class="skill-badge">Chai</span>
+                    </div>
+                </div>
+                <!-- Version Control -->
+                <div class="skill-category">
+                    <h3 class="category-title">Version Control</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Git</span>
+                        <span class="skill-badge">GitHub</span>
+                    </div>
+                </div>
+
+                <!-- Other Tools -->
+                <div class="skill-category">
+                    <h3 class="category-title">Other Tools</h3>
+                    <div class="skill-badges">
+                        <span class="skill-badge">Notion</span>
+                        <span class="skill-badge">Google Colab</span>
+                        <span class="skill-badge">Microsoft Office</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-socials">
+                <a href="https://github.com/injamamulhaquebd" target="_blank" class="social-link">GitHub</a>
+                <a href="https://linkedin.com/in/injamamulhaque" target="_blank" class="social-link">LinkedIn</a>
+                <a href="https://facebook.com/rnmd7" target="_blank" class="social-link">Facebook</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injamamulhaque008@gmail.com" class="social-link" target="_blank" rel="noopener noreferrer">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

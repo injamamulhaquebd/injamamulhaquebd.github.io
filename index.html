@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="Resources/icon.png">
+    <title>Md Injamam UL Haque's Portfolio</title>
+    <script>
+        (function () {
+            var theme = localStorage.getItem('portfolio-theme');
+            if (theme === 'light' || theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+        })();
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="launch-loader" aria-label="Loading portfolio">
+            <div class="launch-orbit">
+                <span></span>
+                <span></span>
+                <span></span>
+                <img src="Resources/icon.png" alt="Md Injamam UL Haque logo">
+            </div>
+            <p class="launch-kicker">Initializing Portfolio</p>
+            <div class="launch-progress"><span></span></div>
+            <p class="launch-status">Preparing interface...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand"><img src="Resources/Logo.png" alt="Logo" class="nav-logo"></div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+              
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" title="Toggle Theme">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="Resources/profile.jpg" alt="Md Injamam UL Haque">
+            </div>
+            <div class="hero-text">
+                    <h2 class="hero-title">Hi, I'm <span class="accent">Md Injamam UL Haque</span></h2>
+                    <p class="hero-subtitle">IT Technician | IT Help Desk Specialist</p>
+                    <p class="hero-description">
+						Experienced IT Technician with 9+ years of hands-on experience in IT support, desktop troubleshooting, hardware, software, and networking.
+						Skilled in diagnosing technical issues and providing reliable solutions for end users.
+						Experienced in Windows systems, computer hardware, printers, LAN/WAN, and network troubleshooting.
+						Certified in CompTIA A+ and CompTIA Network+, with additional networking training.
+						I enjoy solving technical problems and ensuring systems operate smoothly and efficiently.
+						My approach is based on discipline, attention to detail, continuous learning, and quality service.
+						Currently seeking an international IT support opportunity where I can apply my experience, grow professionally, and contribute to a reliable IT environment.
+                    </p>
+                <div class="hero-cta">
+                    <a href="projects.html" class="cta-primary">View My Projects</a>
+                    <a href="Resources/Md Injamam UL Haque.pdf" class="cta-secondary" target="_blank">View CV</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Stats -->
+    <section class="quick-stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Academic Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Passion for Quality</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">7+</div>
+                <div class="stat-label">Certifications</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-socials">
+                <a href="https://github.com/injamamulhaquebd" target="_blank" class="social-link">GitHub</a>
+                <a href="https://linkedin.com/in/injamamulhaque" target="_blank" class="social-link">LinkedIn</a>
+                <a href="https://facebook.com/rnmd7" target="_blank" class="social-link">Facebook</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=injamamulhaque008@gmail.com" class="social-link" target="_blank" rel="noopener noreferrer">Email</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
