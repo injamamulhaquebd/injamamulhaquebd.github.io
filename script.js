@@ -525,6 +525,10 @@ function showAlert(title, message, isSuccess) {
     alertMessage.textContent = message;
     alertContent.classList.toggle('is-success', isSuccess);
     alertContent.classList.toggle('is-error', !isSuccess);
+    modal.querySelector('.alert-btn').onclick = function () {
+        closeAlert();
+        if (isSuccess) window.location.href = 'contact.html';
+    };
     modal.classList.add('active');
 }
 
