@@ -2,7 +2,7 @@ const SITE_LAUNCH_STARTED = performance.now();
 
 /* ============================================
    GLOBAL INTERACTIVITY & JAVASCRIPT
-    Portfolio Website for Md Injamam UL Haque
+   Portfolio Website for Md Injamamul Haque
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -433,7 +433,6 @@ function initCertificateModal() {
 function initContactForm() {
     const contactForm = document.getElementById('contactForm');
     if (!contactForm) return;
-    const formEndpoint = 'https://formsubmit.co/ajax/injamamulhaque008@gmail.com';
 
     contactForm.querySelectorAll('input, textarea').forEach(field => {
         field.addEventListener('focus', function () {
@@ -470,7 +469,7 @@ function initContactForm() {
         submitButton.textContent = 'Sending...';
 
         try {
-            const response = await fetch(formEndpoint, {
+            const response = await fetch(contactForm.action, {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -498,30 +497,61 @@ function isValidEmail(email) {
 }
 
 function showAlert(title, message, isSuccess) {
-    const alertModal = document.getElementById('alertModal');
-    const alertContent = alertModal ? alertModal.querySelector('.alert-content') : null;
+    let modal = document.getElementById('alertModal');
+
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'alertModal';
+        modal.className = 'alert-modal';
+        modal.innerHTML = `
+            <div class="alert-content">
+                <h3 id="alertTitle"></h3>
+                <p id="alertMessage"></p>
+                <button class="alert-btn" type="button">Close</button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        modal.querySelector('.alert-btn').addEventListener('click', closeAlert);
+        modal.addEventListener('click', event => {
+            if (event.target === modal) closeAlert();
+        });
+    }
+
     const alertTitle = document.getElementById('alertTitle');
     const alertMessage = document.getElementById('alertMessage');
-    const alertClose = document.getElementById('alertClose');
-
-    if (!alertModal || !alertContent || !alertTitle || !alertMessage) return;
+    const alertContent = modal.querySelector('.alert-content');
 
     alertTitle.textContent = title;
     alertMessage.textContent = message;
     alertContent.classList.toggle('is-success', isSuccess);
     alertContent.classList.toggle('is-error', !isSuccess);
-    alertModal.classList.add('active');
-    document.body.classList.add('modal-open');
+    modal.classList.add('active');
+}
 
-    if (alertClose) alertClose.focus();
+function closeAlert() {
+    const modal = document.getElementById('alertModal');
+    if (modal) modal.classList.remove('active');
+}
 
-    const closeAlert = function () {
-        alertModal.classList.remove('active');
-        document.body.classList.remove('modal-open');
-    };
+document.addEventListener('keydown', function (event) {
+    const modal = document.getElementById('alertModal');
+    if (event.key === 'Escape' && modal && modal.classList.contains('active')) {
+        closeAlert();
+    }
+});
 
-    if (alertClose) alertClose.onclick = closeAlert;
-    alertModal.onclick = function (event) {
-        if (event.target === alertModal) closeAlert();
+/* ============================================
+   PERFORMANCE HELPERS
+   ============================================ */
+
+function throttle(func, limit) {
+    let inThrottle = false;
+    return function throttledFunction(...args) {
+        if (inThrottle) return;
+        func.apply(this, args);
+        inThrottle = true;
+        setTimeout(function () {
+            inThrottle = false;
+        }, limit);
     };
 }
